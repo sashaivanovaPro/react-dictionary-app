@@ -7,7 +7,12 @@ export default function App() {
   const [terms, setTerms] = useState([])
 
   const addTerm = (newTerm) => {
-    setTerms([...terms, newTerm])
+    const newTerms = [...terms, newTerm]
+    setTerms(sortTermsArray(newTerms))
+  }
+
+  const sortTermsArray = (arrayToSort) => {
+    return [...arrayToSort].sort((a, b) => a.title.localeCompare(b.title))
   }
 
   return (
