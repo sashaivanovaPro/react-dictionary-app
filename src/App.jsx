@@ -11,6 +11,11 @@ export default function App() {
     setTerms(sortTermsArray(newTerms))
   }
 
+  const deleteTerm = (id) => {
+    const filteredArray = terms.filter((term) => term.id !== id)
+    setTerms(filteredArray)
+  }
+
   const sortTermsArray = (arrayToSort) => {
     return [...arrayToSort].sort((a, b) => a.title.localeCompare(b.title))
   }
@@ -20,7 +25,7 @@ export default function App() {
       <h1 className="dictionary-app__header">Словарь</h1>
       <TermForm onAddTerm={addTerm} />
       {terms.length ? (
-        <TermList terms={terms} />
+        <TermList terms={terms} onDeleteTerm={deleteTerm} />
       ) : (
         <p>Начните добавлять термины</p>
       )}

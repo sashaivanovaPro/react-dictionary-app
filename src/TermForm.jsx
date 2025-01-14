@@ -10,12 +10,6 @@ export default function TermForm({ onAddTerm }) {
   const [titleError, setTitleError] = useState("") // Используем строку для сообщения об ошибке
   const [descriptionError, setDescriptionError] = useState("")
 
-  const isSubmitDisabled = () => {
-    return (
-      !title.trim() || !description.trim() || titleError || descriptionError
-    )
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     // console.log("Submit")
@@ -60,6 +54,12 @@ export default function TermForm({ onAddTerm }) {
     } else {
       setDescriptionError("")
     }
+  }
+
+  const isSubmitDisabled = () => {
+    return (
+      !title.trim() || !description.trim() || titleError || descriptionError
+    )
   }
 
   return (
