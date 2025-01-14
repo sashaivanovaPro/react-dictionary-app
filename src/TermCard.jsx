@@ -1,10 +1,10 @@
 import "./TermCard.css"
 
-export default function TermCard() {
+export default function TermCard({ title, description }) {
   return (
-    <div className="term-card">
-      <h2 className="term-card__title">React</h2>
-      <p className="term-card__description">Библиотека</p>
-    </div>
+    <li className="term-card">
+      <h2 className="term-card__title">{title}</h2>
+      <p className="term-card__description">{description}</p>
+    </li>
   )
 }

@@ -1,12 +1,17 @@
-import TermCard from "./TermCard"
 import "./TermList.css"
+import TermCard from "./TermCard"
 
-export default function TermList() {
+export default function TermList({ terms }) {
+  // console.log(terms)
   return (
     <ul className="term-list">
-      <li>
-        <TermCard />
-      </li>
+      {terms.map((term) => (
+        <TermCard
+          key={term.id}
+          title={term.title}
+          description={term.description}
+        />
+      ))}
     </ul>
   )
 }
